@@ -33,6 +33,13 @@ The regularized cost function in logistic regression is:
 
 ![rc](https://i.imgur.com/hZwQxpy.png)
 
+Note that we should not regularize the parameter θ0. In Octave/MATLAB, recall that indexing starts from 1, hence, we should not be regularizing the theta(1) parameter (which corresponds to θ0) in the code. The gradient of the cost function is a vector where the jth element is defined as follows:
+
+![gradient0](https://i.imgur.com/FO3Jep0.png)
+![gradient1](https://i.imgur.com/f5C8p6z.png)
+
+The implementation of the cost function looks like:
+
 ```matlab
 function [J, grad] = costFunctionReg(theta, X, y, lambda)
   %COSTFUNCTIONREG Compute cost and gradient for logistic regression with regularization
@@ -41,14 +48,14 @@ function [J, grad] = costFunctionReg(theta, X, y, lambda)
   %   gradient of the cost w.r.t. to the parameters. 
 
   m = length(y); % number of training examples
-
   grad = zeros(size(theta));
-
   J = ( (1 / m) * sum(-y'*log(sigmoid(X*theta)) - (1-y)'*log( 1 - sigmoid(X*theta))) ) + (lambda/(2*m))*sum(theta(2:length(theta)).*theta(2:length(theta))) ;
-
   grad = (1 / m) * sum( X .* repmat((sigmoid(X*theta) - y), 1, size(X,2)) );
-
   grad(:,2:length(grad)) = grad(:,2:length(grad)) + (lambda/m)*theta(2:length(theta))';
-
 end
 ```
+
+![output](https://i.imgur.com/QQKiPWO.png)
+
+![viz](https://i.imgur.com/TVxhFyJ.png)
+*Figure 2: Training data with decision boundary*
