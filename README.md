@@ -78,4 +78,5 @@ boundary will not follow the data so well, thus underfitting the data (Figure 4)
 
 
 ![underfitting](https://i.imgur.com/uaPLm1Z.png)
+
 *Figure 4: Too much regularization (Underfitting) (λ = 100)*
