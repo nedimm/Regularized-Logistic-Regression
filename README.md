@@ -15,6 +15,7 @@ The implementation was done using [GNU Octave](https://www.gnu.org/software/octa
 Before starting to implement any learning algorithm, it is always good to visualize the data if possible. The figure below displays the historical data where the axes are the two test scores, and the positive (y = 1, accepted) and negative (y = 0, rejected) examples are shown with different markers.
 
 ![viz](https://i.imgur.com/7X1j3az.png)
+
 *Figure 1: Training Data*
 
 Figure 1 shows that our dataset cannot be separated into positive and negative examples by a straight-line through the plot. Therefore, a straightforward application of logistic regression will not perform well on this dataset since logistic regression will only be able to find a linear decision boundary.
@@ -61,6 +62,7 @@ After we implement the cost function, we call it with initial value of θ (initi
 In order to visualize the model learned by this classifier, we plot the (non-linear) decision boundary that separates the positive and negative examples. In `plotDecisionBoundary.m`, we plot the non-linear decision boundary by computing the classifier’s predictions on an evenly spaced grid and then drew a contour plot of where the predictions change from y = 0 to y = 1. After learning the parameters θ, the next step in `ex_reg.m` will plot a decision boundary similar to Figure 2.
 
 ![viz](https://i.imgur.com/TVxhFyJ.png)
+
 *Figure 2: Training data with decision boundary*
 
 # Preventing Overfitting
@@ -71,6 +73,7 @@ With a larger λ, you should see a plot that shows an simpler decision boundary 
 boundary will not follow the data so well, thus underfitting the data (Figure 4).
 
 ![overfitting](https://i.imgur.com/4eLbdoB.png)
+
 *Figure 3: Training data with decision boundary (λ = 1)*
 
 
